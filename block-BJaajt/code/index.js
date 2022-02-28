@@ -3,8 +3,8 @@ let followingContainer = document.querySelector(".following-container");
 let userProfile = document.querySelector(".userprofile");
 let userName = document.querySelector(".username");
 let input = document.querySelector("input");
-let catImage = document.querySelector('cat-image');
-let btn = document.querySelector('button');
+let catImage = document.querySelector(".cat-image");
+let btn = document.querySelector("button");
 // followersData, followingData
 function createUi(userImage, username) {
   userProfile.src = userImage;
@@ -68,13 +68,24 @@ input.addEventListener("keyup", (event) => {
   }
 });
 
-//Access key 
+//Access key
 // GS20ECWWxrEdxKk7brL3YHk0SE6e9cuq6e-nzbO-jHM
-// Secreate key 
+// Secreate key
 // bKXBr3AFIZRaiNUSxBGvsqqYwI35oPGsMuEuUYpvSyU
 
-// Random cat Picture generator 
-let  cat = new XMLHttpRequest();
-cat.open('GET' ,`https://api.unsplash.com/search/photos?query=canada?client_id =77Hofnog8fQyNX7kah4rlzDoAGwSJcOuZlAMtrOFkaY`);
-cat.send();
-console.log(cat);
+// Random cat Picture generator
+btn.addEventListener("click", function () {
+  let cat = new XMLHttpRequest();
+  cat.open(
+    "GET",
+    "https://api.thecatapi.com/v1/images/search?limit=1&size=full"
+  );
+  cat.send();
+  cat.onload = () => {
+    let catData = JSON.parse(cat.response);
+    catData.forEach((eachcat) => {
+      catImage.src = eachcat.url;
+    });
+    console.log(catData);
+  };
+});
