@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 html {
   font-size: 62.5%; }
@@ -13,7 +13,7 @@ html {
   align-items: center; }
 
 body {
-  background-color: #F1DEB8; }
+  background-color: #f1deb8; }
 
 h4 {
   font-size: 2.4rem;
@@ -37,7 +37,7 @@ header {
   justify-content: center;
   margin: 2rem 0; }
   .input-container input {
-    padding: .8rem 3.2rem; }
+    padding: 0.8rem 3.2rem; }
 
 .profile-container {
   flex-direction: column;
@@ -57,5 +57,29 @@ img {
 
 .image-container img {
   margin: 0 1.5rem; }
+
+#cat-container {
+  padding: 4rem 0; }
+  #cat-container header {
+    width: 100%;
+    height: 100%; }
+  #cat-container img {
+    margin: 4rem 0;
+    width: 50rem;
+    height: 50rem;
+    border: none;
+    border-radius: 0px; }
+  #cat-container .container {
+    display: grid;
+    place-content: center;
+    place-items: center; }
+  #cat-container .btn-container {
+    width: 100%;
+    text-align: center; }
+    #cat-container .btn-container button {
+      padding: 1.2rem 3.2rem;
+      border: none;
+      background-color: crimson;
+      color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
