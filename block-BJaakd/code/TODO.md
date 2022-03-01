@@ -1,39 +1,40 @@
 1. Create a promise. Have it resolve with a value of `Promise Resolved!` in resolve after a delay of 1000ms, using `setTimeout`. Print the contents of the promise after it has been resolved by passing `console.log` to `.then`
 
 ```js
-// Your code
+
 ```
 
 2. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch`
 
 ```js
-// Your code
+
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log message `Promise Settled!`.
 
 ```js
-// Your code
+
 ```
 
 4. What will be the output of the code below.
 
 ```js
-console.log('A');
+console.log("A");
 
 // Asynchronous code finises in 0 seconds (Callback Queue)
-setTimeout(() => console.log('B'), 0); // callback queue
+setTimeout(() => console.log("B"), 0); // callback queue
 
 // A promise that resolves right away (Microtask Queue)
-Promise.resolve().then(() => console.log('C'));
+Promise.resolve().then(() => console.log("C"));
 
-console.log('D');
+console.log("D");
+
 ```
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
 
 ```js
-// Your code
+
 ```
 
 6. Do the following:
@@ -46,7 +47,8 @@ console.log('D');
 - Catch the error using `.catch`
 
 ```js
-// Your code
+
+
 ```
 
 7. Do the following:
@@ -58,7 +60,14 @@ console.log('D');
 - Use `.then` and log the value
 
 ```js
+.then(data=>{
+    data.reduce((acc,cv ,index)=>{
+        acc[index] = cv;
+        return acc;
+    },{})
+})
 // Your code
+
 ```
 
 8. Do the following:
@@ -69,7 +78,7 @@ console.log('D');
 - Chain `.then` on above and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+
 ```
 
 9. Do the following:
@@ -80,11 +89,11 @@ console.log('D');
 - Use `.then` on `first` and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
-
+<!-- both seems to be same because we both we are doing the same operation  -->
 11. Do the following
 
 - Create a promise and resolve it with `John`
@@ -93,5 +102,15 @@ console.log('D');
 - Use `.then` to log the value
 
 ```js
-// Your code
+let lastPromise  = Promise.resolve('John').then(()=>{
+    return Promise.resolve('Arya').then(data=>{
+        return Promise.resolve(
+            setTimeout(()=>{
+                return 'Bran';
+            },2000)
+        ).then(data=>{
+            return data;
+        })
+    })
+})
 ```
