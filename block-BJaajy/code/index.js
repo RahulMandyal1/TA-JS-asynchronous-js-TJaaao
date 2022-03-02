@@ -14,6 +14,21 @@ let all = Promise.all([promiseOne,pormiseTwo , promiseThree, promiseFour])
 })
 console.log(all);
 
+
+// - Create a list of 5 Github usernames in an array and using `Promise.all` get access to the data of each user from GitHub API. Log the number of followers of each user.
+
+let users = ['ravikr9102' , 'nnnkit' , 'getify'  ,'akash' , 'ramesh'];
+
+let userData = users.map((ele)=>{
+    return fetch(`https://api.github.com/users/${ele}`).then((data)=>{
+      return  data.json()
+    });
+})
+Promise.all(userData).then(data=> {
+  data.forEach(ele=>{
+    console.log(ele.followers)
+})
+})
 // - Use `Promise.race` to see which API resolves faster from the given list of URLs. Log the object you get from the promise that is resolved faster.
   let firstApi = fetch('https://random.dog/woof.json')
   .then((data)=> data.json())
